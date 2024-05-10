@@ -1,0 +1,93 @@
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Style the side navigation */
+.sidenav {
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+}
+/* Side navigation links */
+.sidenav a {
+  color: white;
+  padding: 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color on hover */
+.sidenav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Style the content */
+.content {
+  margin-left: 200px;
+  padding-left: 20px;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box
+}
+
+body{
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  min-height: 100vh;
+  background: white;
+}
+
+.container{
+  width: 100%;
+  display: flex;
+  max-width: 850px;
+  background:#fff;
+  border-radius: 15px;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.login{
+  width: 400px;
+}
+
+.form{
+  width: 250px;
+  margin: 60px auto:
+}
+
+.h1{
+  margin: 20px;
+  text-align: center;
+  font-weight: bolder;
+  text-transform: uppercase;
+}
+
+button{
+  border: none;
+  outline: none;
+  padding: 8px;
+  width: 252px;
+  color: #fff;
+  font-size: 16px;
+  cursor:pointer;
+  margin-top: 20px;
+  border-radius: 5px;
+  background: #006400;
+}
+</style>
