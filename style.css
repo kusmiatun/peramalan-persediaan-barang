@@ -5,13 +5,13 @@
 
 body {
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 /* Style the side navigation */
 .sidenav {
   height: 100%;
-  width: 200px;
+  width: 300px;
+  font-size: large;
   position: fixed;
   z-index: 1;
   top: 0;
@@ -35,8 +35,8 @@ body {
 
 /* Style the content */
 .content {
-  margin-left: 200px;
-  padding-left: 20px;
+  margin-left: 50px;
+  padding-left: 10px;
 }
 
 *{
@@ -53,41 +53,34 @@ body{
   background: white;
 }
 
-.container{
-  width: 100%;
-  display: flex;
-  max-width: 850px;
-  background:#fff;
-  border-radius: 15px;
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-}
-
-.login{
-  width: 400px;
-}
-
-.form{
-  width: 250px;
-  margin: 60px auto:
-}
-
-.h1{
-  margin: 20px;
-  text-align: center;
-  font-weight: bolder;
-  text-transform: uppercase;
-}
-
-button{
+.sidenav a, .dropdown-btn {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+  display: block;
   border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
   outline: none;
-  padding: 8px;
-  width: 252px;
-  color: #fff;
-  font-size: 16px;
-  cursor:pointer;
-  margin-top: 20px;
-  border-radius: 5px;
-  background: #006400;
+}
+
+/* On mouse-over */
+.sidenav a:hover, .dropdown-btn:hover {
+  color: #f1f1f1;
+}
+
+.dropdown-container {
+  display: none;
+  background-color: #262626;
+  padding-left: 8px;
+}
+
+/* Optional: Style the caret down icon */
+.fa-caret-down {
+  float: right;
+  padding-right: 8px;
 }
 </style>

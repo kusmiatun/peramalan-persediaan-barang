@@ -1,7 +1,5 @@
 <?php
  session_start();
- unset($_SESSION['login']); 
- unset($_SESSION['username']); 
- 
- echo "Sukses logout. Silahkan <a href='login.php'>login</a> terlebih dahulu";
+ session_destroy();
+ header("Location: login.php");
  ?>

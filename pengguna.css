@@ -1,0 +1,60 @@
+<html>
+<head>
+<style>
+body{
+    background: yellow;
+    color: black;
+}
+
+h1 {
+    text-align: center;
+    font-weight: 300px;
+}
+
+.container{
+    position: relative;
+    left:100px;
+    text-align: left;
+    /*berfungsi untuk meletakkan form ditengah*/
+    margin:150px auto;
+    padding: 50px 30px;
+    border: 10px black;
+    width: 120%;
+    height: 55%;
+    box-shadow: 0 0 10px black;
+    background-color: white;
+    padding: 50px;
+}
+
+  button[type=submit] {
+    border: none;
+    outline: none;
+    padding: 8px;
+    width: 50%S;
+    color: #fff;
+    font-size: 16px;
+    cursor:pointer;
+    margin-top: 20px;
+    border-radius: 8px;
+    background: green;
+    position: relative;
+    left: 240px;
+  }
+
+  button[type=reset] {
+    border: none;
+    outline: none;
+    padding: 8px;
+    width: 50%S;
+    color: #fff;
+    font-size: 16px;
+    cursor:pointer;
+    margin-top: 20px;
+    border-radius: 8px;
+    background: red;
+    position: relative;
+    left: 250px;
+  }
+</style>
+</head>
+</html>

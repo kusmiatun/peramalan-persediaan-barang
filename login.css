@@ -1,0 +1,40 @@
+<html>
+<head>
+<style>
+body{
+    background: white;
+    color: black;
+}
+
+h1 {
+    text-align: center;
+    font-weight: 300px;
+}
+
+.container{
+    text-align: left;
+    /*berfungsi untuk meletakkan form ditengah*/
+    margin:150px auto;
+    padding:50px 30px;
+    border: 10px black;
+    width: 250px;
+    box-shadow: 0 0 10px black;
+    background-color: white;
+}
+
+  button{
+    border: none;
+    outline: none;
+    padding: 8px;
+    width: 252px;
+    color: #fff;
+    font-size: 16px;
+    cursor:pointer;
+    margin-top: 20px;
+    border-radius: 5px;
+    background: black;
+  }
+</style>
+</head>
+<body>
+</html>
