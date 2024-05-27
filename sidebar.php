@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="logo.css">
 
 <div class="logo">
-  <img src="BSJ.jpg" alt="Logo" style="width:80px"><h1>PT. BARRIZ SANTUN JAYA</h1>
+  <img src="BSJ.jpg" alt="Logo" style="width:80px"><h1 style="color: white">PT. BARRIZ SANTUN JAYA</h1>
   <br/>
   <br/>
   <br/>
