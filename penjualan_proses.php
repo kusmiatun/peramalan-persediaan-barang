@@ -1,10 +1,13 @@
 <?php
     include "database.php";
 
-    $sql = "SELECT * FROM data_penjualan";  
+    $nama_obat = $_GET['nama_obat'];
+    
+    $sql = "SELECT * FROM data_penjualan WHERE nama_obat = '$nama_obat'";  
+    
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
-        echo "<table>";
+        echo "<table border='1' style='width: 100%'>";
         echo "
             <tr>
             <th>Nama Obat</th>

@@ -1,7 +1,5 @@
 <?php
 include "style.css";
-include "penjualan_proses";
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,26 +15,34 @@ include "penjualan_proses";
 <script src="https://kit.fontawesome.com/2c5a7f5b8c.js" crossorigin="anonymous"></script>
 <!-- end font awesome-->
 
-<div class="sidenav">
-<?php include 'sidebar.php'; ?>
-</div>
+
+
 </head>
 <body>
-<h1>DATA PENJUALAN</h1>
-    Nama obat<br>
-    <select id="nama_obat" name="nama_obat">
-    <option value=""></option>
-    <option value="Amoxicillin 500 MG HJ Isi 200">Amoxicillin 500 mg HJ isi 200</option>
-    <option value="Alpara Tablet">Alpara Tablet</option>
-    <option value="Antangin JRG Cair Dewasa">Antangin JRG Cair Dewasa</option>
-    </select><br><br>
-<table border="1">
-    <tr>
-        <th>Nama Obat</th>
-        <th>Periode</th>
-        <th>Jumlah Penjualan</th>
-    </tr>
-</table>
-</div>
+    <div class="sidenav">
+        <?php include 'sidebar.php'; ?>
+    </div>
+
+    <div style='width:100%; max-height: 100vh; overflow: auto; padding-left: 36px; padding-right: 36px;'>
+        <h1>DATA PENJUALAN</h1>
+        Nama obat<br>
+
+        <form action="data_penjualan.php" method="get">
+            <select id="nama_obat" name="nama_obat">
+                <option value="">Pilih obat</option>
+                <option value="Amoxicillin 500 MG HJ Isi 200">Amoxicillin 500 mg HJ isi 200</option>
+                <option value="Alpara Tablet">Alpara Tablet</option>
+                <option value="Antangin JRG Cair Dewasa">Antangin JRG Cair Dewasa</option>
+            </select>
+            <button>Pilih obat</button>
+        </form>
+        <br><br>
+
+        <?php 
+            if(isset($_GET['nama_obat']) && !empty($_GET['nama_obat'])){
+                include "penjualan_proses.php"; 
+            }
+        ?>
+    </div>
 </body>
 </html>
