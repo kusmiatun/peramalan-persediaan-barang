@@ -23,7 +23,7 @@ include "style.css";
         <?php include 'sidebar.php'; ?>
     </div>
 
-    <div style='width:100%; max-height: 100vh; overflow: auto; padding-left: 36px; padding-right: 36px; padding-top: 36px'>
+    <div style='flex: 1; max-height: 100vh; overflow: auto; padding-left: 36px; padding-right: 36px; padding-top: 36px'>
         <h1 style="margin-bottom: 24px">DATA PENJUALAN</h1>
         Nama obat<br>
 
