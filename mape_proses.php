@@ -50,7 +50,7 @@ $list = $result->fetch_all(MYSQLI_ASSOC);
             <td align="center"><?= $index == 0 || $index == 1 ? '-' : $wma ?></td>
             <td align="center"><?= $index == 0 || $index == 1 ? '-' :  $row["jumlah_penjualan"] - $wma ?></td>
             <td align="center">
-                <?= $index == 0 || $index == 1 ? '-' : number_format($mape, 5) ?>
+                <?= $index == 0 || $index == 1 ? '-' : number_format($mape, 7) ?>
             </td>
         </tr>
     <?php endforeach; ?>
@@ -58,13 +58,13 @@ $list = $result->fetch_all(MYSQLI_ASSOC);
         <tr>
             <td align="center" colspan="3">Average</td>
             <td align="center">
-                <?= number_format($total_wma / $total_data, 3) ?>
+                <?= $total_wma / ($total_data - 2) ?>
             </td>
             <td align="center">
-                <?= number_format($total_selisih / $total_data, 3) ?>
+                <?= $total_selisih / ($total_data - 2) ?>
             </td>
             <td align="center">
-                <?= number_format($total_mape / $total_data, 5) ?>
+                <?= number_format($total_mape / ($total_data -2), 7) ?>
             </td>
         </tr>
     </table>
