@@ -1,3 +1,13 @@
+<?php 
+if(!isset($_SESSION)){ 
+  session_start(); 
+} 
+
+function isMenuAdmin() {
+  return isset($_SESSION['role']) && $_SESSION['role'] == 'admin';
+}
+?>
+
 
 <link rel="stylesheet" href="logo.css">
 
@@ -9,13 +19,23 @@
   <br/>
   <br/>
   <br/>
-  <a href="beranda.php"><i class="fa-solid fa-house"></i> Beranda</a>
+  
+  <?php if(isMenuAdmin()) { ?>
+  <a href="index.php"><i class="fa-solid fa-house"></i> Beranda</a>
+  <?php } ?>
+  
+  <?php if(isMenuAdmin()) { ?>
   <a href="menu_pengguna.php"><i class="fa-solid fa-users"></i> Pengguna</a>
+  <?php } ?>
+
   <button class="dropdown-btn"><i class="fa-solid fa-folder-open"></i> Penjualan
       <i class="fa fa-caret-down"></i>
   </button>
+  
   <div class="dropdown-container">
+    <?php if(isMenuAdmin()) { ?>
     <a href="input_penjualan.php">Input penjualan</a>
+    <?php } ?>
     <a href="data_penjualan.php">Data penjualan</a>
   </div>
 
