@@ -9,7 +9,7 @@ if($conn->connect_error) {
    echo "Koneksi database gagal";
    die("error!"); 
 }else{
-   echo "koneksi berhasil";
+   // echo "koneksi berhasil";
 }
 ?> 
  

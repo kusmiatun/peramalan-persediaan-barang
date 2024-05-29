@@ -1,12 +1,5 @@
-<?php
-// Start the session
-session_start();
+<?php include_once 'private_guard.php' ?>
 
-if (isset($_SESSION['username']) == false) { 
- header("Location: login.php"); 
-}
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,8 +16,8 @@ if (isset($_SESSION['username']) == false) {
 
 </head>
 <body>
-<div class="sidenav">
-<?php include 'sidebar.php'; ?>
-</div>
+    <div class="sidenav">
+    <?php include 'sidebar.php'; ?>
+    </div>
 </body>
 </html>

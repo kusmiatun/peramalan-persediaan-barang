@@ -6,8 +6,9 @@
         $username = $_POST["username"];
         $password = $_POST["password"];
 
-        $sql = "INSERT INTO skun_pengguna (divisi, username, password) VALUES
-        ('$divisi', '$username', '$password')";
+
+        $sql = "INSERT INTO skun_pengguna (divisi, username, password, role) VALUES
+        ('$divisi', '$username', '$password', 'pengadaan')";
 
         $result = mysqli_query($conn, $sql);
 

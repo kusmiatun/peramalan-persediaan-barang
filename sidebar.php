@@ -2,7 +2,10 @@
 <link rel="stylesheet" href="logo.css">
 
 <div class="logo">
-  <img src="BSJ.jpg" alt="Logo" style="width:80px"><h1 style="color: white">PT. BARRIZ SANTUN JAYA</h1>
+  <div style="text-align: center;">
+    <img src="image/BSJ.jpg" alt="Logo" style="width:80px">
+    <h1 style="color: white; font-size: 14px; text-align: center; display: block">PT. BARRIZ SANTUN JAYA</h1>
+  </div>
   <br/>
   <br/>
   <br/>
@@ -35,7 +38,7 @@
   </script>
 </div>
 
-  <a href="#Peramalan"><i class="fa-solid fa-chart-line"></i> Peramalan</a>
+  <a href="peramalan.php"><i class="fa-solid fa-chart-line"></i> Peramalan</a>
   <br/>
   <br/>
   <br/>

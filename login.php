@@ -33,7 +33,7 @@ include "login.css";
     <input type="text" name="username" placeholder="Enter the username"><br><br>
     Password<br>
     <input type="password" name="password" placeholder="Enter the password"><br><br>
-    <button type="submit" name="insert">Login</button>
+    <button type="submit" name="login">Login</button>
    </form>
 </div>
 </body>

@@ -24,10 +24,11 @@ include "style.css";
     </div>
 
     <div style='width:100%; max-height: 100vh; overflow: auto; padding-left: 36px; padding-right: 36px; padding-top: 36px'>
-        <h1 style="margin-bottom: 24px">DATA PENJUALAN</h1>
+        <h1 style="margin-bottom: 24px">PERAMALAN</h1>
+        
         Nama obat<br>
 
-        <form action="data_penjualan.php" method="get">
+        <form action="peramalan.php" method="get">
             <select id="nama_obat" name="nama_obat">
                 <option value="">Pilih obat</option>
                 <option value="Amoxicillin 500 MG HJ Isi 200">Amoxicillin 500 mg HJ isi 200</option>
@@ -40,7 +41,7 @@ include "style.css";
 
         <?php 
             if(isset($_GET['nama_obat']) && !empty($_GET['nama_obat'])){
-                include "penjualan_proses.php"; 
+                include "peramalan_proses.php"; 
             }
         ?>
     </div>
