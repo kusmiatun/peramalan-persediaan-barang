@@ -32,12 +32,12 @@ $mape_bulan_selanjutnya = null;
 
     <?php foreach($list as $index => $row) : ?>
         <?php 
-            if($index == 0 || $index == 1) {
+            if($index == 0 || $index == 1 || $index == 2) {
                 $wma = 0;
                 $mape = 0;
                 $selisih = 0;
             }else{
-                $wma = (($list[$index-1]['jumlah_penjualan'] * 2) + ($list[$index-2]['jumlah_penjualan'] * 1)) / 3;
+                $wma = (($list[$index-1]['jumlah_penjualan'] * 3) + ($list[$index-2]['jumlah_penjualan'] * 2) + ($list[$index-3]['jumlah_penjualan'] * 1)) / 6;
                 $mape = (abs($row['jumlah_penjualan'] - $wma) / $row['jumlah_penjualan']);
                 $selisih = $row["jumlah_penjualan"] - $wma;
             } 
@@ -50,10 +50,10 @@ $mape_bulan_selanjutnya = null;
             <td><?= $row["nama_obat"] ?></td>  
             <td><?= format_periode($row["periode"]) ?></td> 
             <td align="center"><?= $row["jumlah_penjualan"] ?></td>
-            <td align="center"><?= $index == 0 || $index == 1 ? '-' : $wma ?></td>
-            <td align="center"><?= $index == 0 || $index == 1 ? '-' :  $row["jumlah_penjualan"] - $wma ?></td>
+            <td align="center"><?= $index == 0 || $index == 1 || $index == 2 ? '-' : $wma ?></td>
+            <td align="center"><?= $index == 0 || $index == 1 || $index == 2 ? '-' :  $row["jumlah_penjualan"] - $wma ?></td>
             <td align="center">
-                <?= $index == 0 || $index == 1 ? '-' : number_format($mape, 7) ?>
+                <?= $index == 0 || $index == 1 || $index == 2 ? '-' : number_format($mape, 7) ?>
             </td>
         </tr>
     <?php endforeach; ?>
@@ -61,13 +61,13 @@ $mape_bulan_selanjutnya = null;
         <tr>
             <td align="center" colspan="3">Average</td>
             <td align="center">
-                <?= $total_wma / ($total_data - 2) ?>
+                <?= $total_wma / ($total_data - 3) ?>
             </td>
             <td align="center">
-                <?= $total_selisih / ($total_data - 2) ?>
+                <?= $total_selisih / ($total_data - 3) ?>
             </td>
             <td align="center">
-                <?= number_format($total_mape / ($total_data -2), 7) ?>
+                <?= number_format($total_mape / ($total_data -3), 7) ?>
             </td>
         </tr>
     </table>
@@ -75,7 +75,7 @@ $mape_bulan_selanjutnya = null;
     <div style="margin-top: 24px">
         <?php
         $last_index = count($list) - 1;
-        $wma_bulan_selanjutnya = (($list[$last_index]['jumlah_penjualan'] * 2) + ($list[$last_index-1]['jumlah_penjualan'] * 1)) / 3;
+        $wma_bulan_selanjutnya = (($list[$last_index]['jumlah_penjualan'] * 3) + ($list[$last_index-1]['jumlah_penjualan'] * 2) + ($list[$last_index-2]['jumlah_penjualan'] * 1)) / 6;
         $mape_bulan_selanjutnya = (abs($list[$last_index]['jumlah_penjualan'] - $wma_bulan_selanjutnya) / $list[$last_index]['jumlah_penjualan']);
         ?>
         Peramalan untuk periode selanjutnya adalah <?= $wma_bulan_selanjutnya ?> dan mape sebesar <?= number_format($mape_bulan_selanjutnya, 5) ?>

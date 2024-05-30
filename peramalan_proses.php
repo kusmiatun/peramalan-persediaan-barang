@@ -21,12 +21,12 @@ $list = $result->fetch_all(MYSQLI_ASSOC);
 
     <?php foreach($list as $index => $row) : ?>
         <?php 
-            if($index == 0 || $index == 1) {
+            if($index == 0 || $index == 1 || $index == 2) {
                 $wma = 0;
                 $mape = 0;
                 $selisih = 0;
             }else{
-                $wma = (($list[$index-1]['jumlah_penjualan'] * 2) + ($list[$index-2]['jumlah_penjualan'] * 1)) / 3;
+                $wma = (($list[$index-1]['jumlah_penjualan'] * 3) + ($list[$index-2]['jumlah_penjualan'] * 2) + ($list[$index-3]['jumlah_penjualan'] * 1)) / 6;
                 $mape = (abs($row['jumlah_penjualan'] - $wma) / $row['jumlah_penjualan']);
                 $selisih = $row["jumlah_penjualan"] - $wma;
             } 
@@ -43,7 +43,7 @@ $list = $result->fetch_all(MYSQLI_ASSOC);
     <div style="margin-top: 24px; margin-bottom: 24px">
         <?php
         $last_index = count($list) - 1;
-        $wma_bulan_selanjutnya = (($list[$last_index]['jumlah_penjualan'] * 2) + ($list[$last_index-1]['jumlah_penjualan'] * 1)) / 3;
+        $wma_bulan_selanjutnya = (($list[$last_index]['jumlah_penjualan'] * 3) + ($list[$last_index-1]['jumlah_penjualan'] * 2) + ($list[$last_index-2]['jumlah_penjualan'] * 1)) / 6;
         ?>
         Peramalan untuk periode selanjutnya adalah <?= $wma_bulan_selanjutnya ?>
     </div>
