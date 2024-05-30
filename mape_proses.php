@@ -8,6 +8,8 @@ $sql = "SELECT * FROM data_penjualan WHERE nama_obat = '$nama_obat' ORDER BY per
 
 $result = $conn->query($sql);
 $list = $result->fetch_all(MYSQLI_ASSOC);
+$wma_bulan_selanjutnya = null;
+$mape_bulan_selanjutnya = null;
 ?>
 
 <?php if (count($list) > 0): ?>
@@ -42,6 +44,7 @@ $list = $result->fetch_all(MYSQLI_ASSOC);
             $total_mape += $mape;
             $total_wma += $wma;
             $total_selisih += $selisih;
+            $list[$index]['wma'] = $wma;
         ?>
         <tr>
             <td><?= $row["nama_obat"] ?></td>  
@@ -75,8 +78,61 @@ $list = $result->fetch_all(MYSQLI_ASSOC);
         $wma_bulan_selanjutnya = (($list[$last_index]['jumlah_penjualan'] * 2) + ($list[$last_index-1]['jumlah_penjualan'] * 1)) / 3;
         $mape_bulan_selanjutnya = (abs($list[$last_index]['jumlah_penjualan'] - $wma_bulan_selanjutnya) / $list[$last_index]['jumlah_penjualan']);
         ?>
-        Peramalan untuk periode selanjutnya adalah <?= $wma_bulan_selanjutnya ?> dan mape sebesar <?= number_format($mape_bulan_selanjutnya, 5) ?>%
+        Peramalan untuk periode selanjutnya adalah <?= $wma_bulan_selanjutnya ?> dan mape sebesar <?= number_format($mape_bulan_selanjutnya, 5) ?>
     </div>
 <?php else: ?>
     0 results
 <?php endif; ?>
+
+
+<hr style="margin: 36px 0">
+
+<div style="padding: 24px">
+    <h1 style="text-align: center; display: block; margin-bottom: 24px">Grafik Data dan Hasil Prediksi WMA</h1>
+    <canvas id="acquisitions"></canvas>
+</div>
+
+
+<script src="chart.umd.js"></script>
+<script>
+    (async function() {
+        <?php 
+            $periode_list = array_map(function($row) {
+                return format_periode($row['periode']);
+            }, $list);
+            $actual_list = array_column($list, 'jumlah_penjualan');
+            $wma_list = array_map(function($row) {
+                return $row['wma'] > 0 ? $row['wma'] : null;
+            }, $list);
+        ?>
+        const labels = <?= json_encode([...$periode_list, 'Periode selanjutnya']); ?>;
+        const data_aktual = <?= json_encode([...$actual_list, null]); ?>;
+        const data_wma = <?php echo json_encode([...$wma_list, $wma_bulan_selanjutnya]); ?>;
+
+        new Chart(
+            document.getElementById('acquisitions'),
+            {
+                type: 'line',
+                data:  {
+                    labels: labels,
+                    datasets: [
+                        {
+                            label: 'Data aktual',
+                            data: data_aktual,
+                            fill: false,
+                            borderColor: 'rgb(75, 192, 192)',
+                            tension: 0.1
+                        },
+                        {
+                            label: 'WMA',
+                            data: data_wma,
+                            fill: false,
+                            borderColor: 'rgb(192, 75, 192)',
+                            tension: 0.1
+                        }
+                    ]
+                }
+            }
+        );
+    })();
+</script>

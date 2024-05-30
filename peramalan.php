@@ -31,9 +31,9 @@ include "style.css";
         <form action="peramalan.php" method="get">
             <select id="nama_obat" name="nama_obat">
                 <option value="">Pilih obat</option>
-                <option value="Amoxicillin 500 MG HJ Isi 200">Amoxicillin 500 mg HJ isi 200</option>
-                <option value="Alpara Tablet">Alpara Tablet</option>
-                <option value="Antangin JRG Cair Dewasa">Antangin JRG Cair Dewasa</option>
+                <option value="Amoxicillin 500 MG HJ Isi 200" <?= @$_GET['nama_obat'] === 'Amoxicillin 500 MG HJ Isi 200' ? 'selected' : '' ?>>Amoxicillin 500 mg HJ isi 200</option>
+                <option value="Alpara Tablet" <?= @$_GET['nama_obat'] === 'Alpara Tablet' ? 'selected' : '' ?>>Alpara Tablet</option>
+                <option value="Antangin JRG Cair Dewasa" <?= @$_GET['nama_obat'] === 'Antangin JRG Cair Dewasa' ? 'selected' : '' ?>>Antangin JRG Cair Dewasa</option>
             </select>
             <button>Pilih obat</button>
         </form>
