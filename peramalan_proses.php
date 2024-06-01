@@ -19,6 +19,13 @@ $list = $result->fetch_all(MYSQLI_ASSOC);
             <th>WMA</th>
         </tr>
 
+    <?php
+        $total_mape = 0;
+        $total_data = count($list);
+        $total_wma = 0;
+        $total_selisih = 0;
+    ?>
+
     <?php foreach($list as $index => $row) : ?>
         <?php 
             if($index == 0 || $index == 1 || $index == 2) {
