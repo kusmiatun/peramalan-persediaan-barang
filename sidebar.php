@@ -1,18 +1,41 @@
+<?php 
+if(!isset($_SESSION)){ 
+  session_start(); 
+} 
+
+function isMenuAdmin() {
+  return isset($_SESSION['role']) && $_SESSION['role'] == 'admin';
+}
+?>
+
 
 <link rel="stylesheet" href="logo.css">
 
 <div class="logo">
-  <img src="BSJ.jpg" alt="Logo" style="width:80px"><h1 style="color: white">PT. BARRIZ SANTUN JAYA</h1>
+  <div style="text-align: center;">
+    <img src="image/BSJ.jpg" alt="Logo" style="width:80px">
+    <h1 style="color: white; font-size: 14px; text-align: center; display: block">PT. BARRIZ SANTUN JAYA</h1>
+  </div>
   <br/>
   <br/>
   <br/>
-  <a href="beranda.php"><i class="fa-solid fa-house"></i> Beranda</a>
+  
+  <?php if(isMenuAdmin()) { ?>
+  <a href="index.php"><i class="fa-solid fa-house"></i> Beranda</a>
+  <?php } ?>
+  
+  <?php if(isMenuAdmin()) { ?>
   <a href="menu_pengguna.php"><i class="fa-solid fa-users"></i> Pengguna</a>
+  <?php } ?>
+
   <button class="dropdown-btn"><i class="fa-solid fa-folder-open"></i> Penjualan
       <i class="fa fa-caret-down"></i>
   </button>
+  
   <div class="dropdown-container">
+    <?php if(isMenuAdmin()) { ?>
     <a href="input_penjualan.php">Input penjualan</a>
+    <?php } ?>
     <a href="data_penjualan.php">Data penjualan</a>
   </div>
 
@@ -35,7 +58,7 @@
   </script>
 </div>
 
-  <a href="#Peramalan"><i class="fa-solid fa-chart-line"></i> Peramalan</a>
+  <a href="peramalan.php"><i class="fa-solid fa-chart-line"></i> Peramalan</a>
   <br/>
   <br/>
   <br/>

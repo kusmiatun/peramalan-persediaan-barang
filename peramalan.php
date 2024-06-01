@@ -24,15 +24,16 @@ include "style.css";
     </div>
 
     <div style='flex: 1; max-height: 100vh; overflow: auto; padding-left: 36px; padding-right: 36px; padding-top: 36px'>
-        <h1 style="margin-bottom: 24px">DATA PENJUALAN</h1>
+        <h1 style="margin-bottom: 24px">PERAMALAN</h1>
+        
         Nama obat<br>
 
-        <form action="data_penjualan.php" method="get">
+        <form action="peramalan.php" method="get">
             <select id="nama_obat" name="nama_obat">
                 <option value="">Pilih obat</option>
-                <option value="Amoxicillin 500 MG HJ Isi 200">Amoxicillin 500 mg HJ isi 200</option>
-                <option value="Alpara Tablet">Alpara Tablet</option>
-                <option value="Antangin JRG Cair Dewasa">Antangin JRG Cair Dewasa</option>
+                <option value="Amoxicillin 500 MG HJ Isi 200" <?= @$_GET['nama_obat'] === 'Amoxicillin 500 MG HJ Isi 200' ? 'selected' : '' ?>>Amoxicillin 500 mg HJ isi 200</option>
+                <option value="Alpara Tablet" <?= @$_GET['nama_obat'] === 'Alpara Tablet' ? 'selected' : '' ?>>Alpara Tablet</option>
+                <option value="Antangin JRG Cair Dewasa" <?= @$_GET['nama_obat'] === 'Antangin JRG Cair Dewasa' ? 'selected' : '' ?>>Antangin JRG Cair Dewasa</option>
             </select>
             <button>Pilih obat</button>
         </form>
@@ -40,7 +41,7 @@ include "style.css";
 
         <?php 
             if(isset($_GET['nama_obat']) && !empty($_GET['nama_obat'])){
-                include "penjualan_proses.php"; 
+                include "peramalan_proses.php"; 
             }
         ?>
     </div>

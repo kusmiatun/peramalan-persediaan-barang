@@ -1,10 +1,5 @@
 <?php
-// Start the session
-session_start();
-
-if (isset($_SESSION['username']) == false) { 
- header("Location: login.php"); 
-}
+include "private_guard.php";
 
 include "style.css";
 
@@ -29,7 +24,7 @@ include "style.css";
     <div class="sidenav">
         <?php include 'sidebar.php'; ?>
     </div>
-    <div style="heigh: 100vh; width: 100%">
+    <div style="heigh: 100vh; flex: 1">
         <div class="container">
             <form action="pengguna_proses.php" method="POST">  
                 <h1>INPUT PENGGUNA</h1>
@@ -38,7 +33,7 @@ include "style.css";
                 Divisi
                 
                 <br>
-                <input type="text" name="divi">
+                <input type="text" name="divisi">
                 
                 <br><br>
                 
