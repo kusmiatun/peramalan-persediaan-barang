@@ -6,6 +6,11 @@ if(!isset($_SESSION)){
 function isMenuAdmin() {
   return isset($_SESSION['role']) && $_SESSION['role'] == 'admin';
 }
+
+function isMenuPengadaan() {
+  return isset($_SESSION['role']) && $_SESSION['role'] == 'pengadaan';
+}
+
 ?>
 
 
@@ -58,7 +63,10 @@ function isMenuAdmin() {
   </script>
 </div>
 
+  <?php if(isMenuPengadaan()) { ?>
   <a href="peramalan.php"><i class="fa-solid fa-chart-line"></i> Peramalan</a>
+  <?php } ?>
+  
   <br/>
   <br/>
   <br/>
