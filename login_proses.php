@@ -42,6 +42,8 @@ if(isset($_POST['login'])){
             $_SESSION['role'] = 'pengadaan';
             header('Location:index.php');
         }
+    }else{
+        header('Location:login.php');
     }
 }
 

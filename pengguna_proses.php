@@ -3,7 +3,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $divisi = $_POST['divisi'];
     $username = $_POST['username'];
     $password = $_POST['password'];
-    $role= $_POST ['role'];
+    $role= $_POST ['role'] ?? 'pengadaan';
+
     if (empty($divisi) || empty($username)|| empty($password) || empty($role)) {
         $_SESSION['error'] = 'divisi, username, admin password harus diisi.';
         ?>
@@ -22,6 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $divisi = $_POST['divisi'];
         $username = $_POST['username'];
         $password = $_POST['password'];
+
 
 
         $sql = "INSERT INTO skun_pengguna (divisi, username, password, role) VALUES
