@@ -13,13 +13,12 @@ h1 {
 
 .container{
     position: relative;
-    left:100px;
     text-align: left;
     /*berfungsi untuk meletakkan form ditengah*/
     margin:150px auto;
     padding: 50px 30px;
     border: 10px black;
-    width: 120%;
+    width: 500px;
     height: 55%;
     box-shadow: 0 0 10px black;
     background-color: white;
@@ -38,22 +37,22 @@ h1 {
     border-radius: 8px;
     background: green;
     position: relative;
-    left: 240px;
+    left: 250px;
   }
 
-  button[type=reset] {
+    button[type=cancel] {
     border: none;
     outline: none;
     padding: 8px;
     width: 50%S;
-    color: #fff;
+    color: #fff;s
     font-size: 16px;
     cursor:pointer;
     margin-top: 20px;
     border-radius: 8px;
     background: red;
     position: relative;
-    left: 250px;
+    left: 270px;
   }
 </style>
 </head>

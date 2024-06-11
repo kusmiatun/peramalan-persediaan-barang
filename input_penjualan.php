@@ -21,6 +21,7 @@ include "style.css";
 </div>
 </head>
 <body>
+    <div style="heigh:100vh; flex: 1">
 <form action="input_proses.php" method="POST"> 
 <div class="container">
 <h1>INPUT PENJUALAN</h1>
@@ -38,8 +39,9 @@ include "style.css";
     Jumlah penjualan<br>
     <input type="text" name="jumlah_penjualan"><br><br>
     <button type="submit" name="insert">Simpan</button>
-    <button type="reset" name="hapus">Hapus</button>
+    <button type="cancel" name="cancel">Kembali</button>
 </form> 
+</div>
 </div>
 </body>
 </html>

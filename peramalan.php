@@ -44,6 +44,7 @@ include "style.css";
                 include "peramalan_proses.php"; 
             }
         ?>
+        
     </div>
 </body>
 </html>

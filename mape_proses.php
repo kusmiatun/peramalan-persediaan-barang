@@ -53,7 +53,7 @@ $mape_bulan_selanjutnya = null;
             <td align="center"><?= $index == 0 || $index == 1 || $index == 2 ? '-' : $wma ?></td>
             <td align="center"><?= $index == 0 || $index == 1 || $index == 2 ? '-' :  $row["jumlah_penjualan"] - $wma ?></td>
             <td align="center">
-                <?= $index == 0 || $index == 1 || $index == 2 ? '-' : number_format($mape * 100, 0)."%" ?>
+                <?= $index == 0 || $index == 1 || $index == 2 ? '-' : number_format($mape, 4) ?>
             </td>
         </tr>
     <?php endforeach; ?>

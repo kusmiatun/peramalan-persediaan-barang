@@ -25,16 +25,14 @@ include "style.css";
         <?php include 'sidebar.php'; ?>
     </div>
     <div style="heigh: 100vh; flex: 1">
-        <div class="container">
+    <div class="container">
             <form action="pengguna_proses.php" method="POST">  
                 <h1>INPUT PENGGUNA</h1>
                 <br/>
                 <br/>
                 Divisi
-                
                 <br>
                 <input type="text" name="divisi">
-                
                 <br><br>
                 
                 Username
@@ -44,12 +42,10 @@ include "style.css";
                 
                 Password
                 <br>
-                <input type="text" name="password">
-                
+                <input type="number" name="password">
                 <br><br>
-                
                 <button type="submit" name="insert">Simpan</button>
-                <button type="reset" name="hapus">Hapus</button>
+                <button type="cancel" name="cancel">Kembali</button>
             </form> 
         </div>
     </div>
