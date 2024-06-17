@@ -2,7 +2,7 @@
 <head>
 <style>
 body{
-    background-color: yellow;
+    background: red;
     color: black;
 }
 
@@ -14,12 +14,13 @@ h1 {
 .container{
     position: relative;
     text-align: left;
+    /*berfungsi untuk meletakkan form ditengah*/
     margin:150px auto;
     padding: 50px 30px;
     border: 10px black;
     width: 500px;
     box-shadow: 0 0 10px black;
-    background-color: yellow;
+    background-color: white;
     padding: 50px;
 }
 

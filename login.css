@@ -2,8 +2,7 @@
 <head>
 <style>
 body{
-    background: white;
-    color: black;
+    background-color: yellow;
 }
 
 h1 {
@@ -20,6 +19,7 @@ h1 {
     width: 250px;
     box-shadow: 0 0 10px black;
     background-color: white;
+    color : black;
 }
 
   button{
@@ -32,7 +32,7 @@ h1 {
     cursor:pointer;
     margin-top: 20px;
     border-radius: 5px;
-    background: black;
+    background: green;
   }
 </style>
 </head>

@@ -29,9 +29,27 @@ function isMenuPengadaan() {
   <a href="index.php"><i class="fa-solid fa-house"></i> Beranda</a>
   <?php } ?>
   
+  <button class="dropdown-btn"><i class="fa-solid fa-folder-open"></i> Pengguna
+      <i class="fa fa-caret-down"></i>
+  </button>
+
+  <div class="dropdown-container">
   <?php if(isMenuAdmin()) { ?>
-  <a href="menu_pengguna.php"><i class="fa-solid fa-users"></i> Pengguna</a>
+  <a href="menu_pengguna.php"></i>Input pengguna</a>
   <?php } ?>
+  <a href="data_pengguna.php">Data pengguna</a>
+  </div>
+
+  <button class="dropdown-btn"><i class="fa-solid fa-folder-open"></i> Obat
+      <i class="fa fa-caret-down"></i>
+  </button>
+
+  <div class="dropdown-container">
+  <?php if(isMenuAdmin()) { ?>
+  <a href="input_obat.php"></i>Input obat</a>
+  <?php } ?>
+  <a href="data_obat.php">Data obat</a>
+  </div>
 
   <button class="dropdown-btn"><i class="fa-solid fa-folder-open"></i> Penjualan
       <i class="fa fa-caret-down"></i>
