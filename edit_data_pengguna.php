@@ -27,9 +27,6 @@
         $sql = "SELECT * FROM skun_pengguna WHERE id = $id";
         $result = $conn->query($sql);
     }
-    if ($result->num_rows > 0) {
-    $row = $result->fetch_assoc();
-    } 
     ?>
             <form action="edit_data_penggguna.php" method="POST">  
                 <h1>EDIT PENGGUNA</h1>
@@ -56,4 +53,4 @@
                 <button type="cancel" name="cancel">Kembali</button>
             </form> 
 </body>
-</html>s
+</html>

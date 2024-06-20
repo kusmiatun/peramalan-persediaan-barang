@@ -27,16 +27,16 @@ function isMenuPengadaan() {
   
   <?php if(isMenuAdmin()) { ?>
   <a href="index.php"><i class="fa-solid fa-house"></i> Beranda</a>
-  <?php } ?>
+  
   
   <button class="dropdown-btn"><i class="fa-solid fa-folder-open"></i> Pengguna
       <i class="fa fa-caret-down"></i>
   </button>
 
   <div class="dropdown-container">
-  <?php if(isMenuAdmin()) { ?>
+  
   <a href="menu_pengguna.php"></i>Input pengguna</a>
-  <?php } ?>
+ 
   <a href="data_pengguna.php">Data pengguna</a>
   </div>
 
@@ -45,12 +45,11 @@ function isMenuPengadaan() {
   </button>
 
   <div class="dropdown-container">
-  <?php if(isMenuAdmin()) { ?>
-  <a href="input_obat.php"></i>Input obat</a>
-  <?php } ?>
+   <a href="input_obat.php"></i>Input obat</a>
+  
   <a href="data_obat.php">Data obat</a>
   </div>
-
+  <?php } ?>
   <button class="dropdown-btn"><i class="fa-solid fa-folder-open"></i> Penjualan
       <i class="fa fa-caret-down"></i>
   </button>
@@ -79,8 +78,6 @@ function isMenuPengadaan() {
       });
     }
   </script>
-</div>
-
   <?php if(isMenuPengadaan()) { ?>
   <a href="peramalan.php"><i class="fa-solid fa-chart-line"></i> Peramalan</a>
   <?php } ?>
@@ -98,4 +95,6 @@ function isMenuPengadaan() {
   <br/>
   <br/>
   <a href="logout.php"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+
+</div>
 

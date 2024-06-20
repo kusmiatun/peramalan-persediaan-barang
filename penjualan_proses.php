@@ -14,13 +14,17 @@
             <th>Nama Obat</th>
             <th>Periode</th>
             <th>Jumlah Penjualan</th>
-            </tr>";
+            <th>Aksi</th>
+        </tr>";
         
     while($row = $result->fetch_assoc()) {
         echo   "<tr>";
             echo "<td>" . $row["nama_obat"] . "</td>";  
             echo "<td>" . format_periode($row["periode"]). "</td>"; 
             echo "<td>" . $row["jumlah_penjualan"] . "</td>"; 
+            echo "<td>";
+            echo '<button onclick="deleteRow(' . $row["id_penjualan"] . ')">Hapus</button>'; 
+            echo "</td>";
         echo "</tr>";
 
         }
@@ -29,4 +33,11 @@
     }else {
         echo "0 results";
     }
-    ?>
+    ?><script>
+function deleteRow(id) {
+        // Konfirmasi sebelum menghapus
+        if (confirm('Anda yakin ingin menghapus data ini?')) {
+            // Redirect ke halaman delete dengan id yang sesuai
+            window.location.href = 'delete_penjualan.php?id=' + id;
+        }
+    }</script>
