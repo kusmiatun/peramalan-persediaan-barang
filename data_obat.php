@@ -21,7 +21,7 @@ include "style.css";
     <div class="sidenav">
         <?php include 'sidebar.php'; ?>
     </div>
-    <div class="bg-light">
+    <div class="bg-light col-10">
         <?php
         include "database.php";
 
