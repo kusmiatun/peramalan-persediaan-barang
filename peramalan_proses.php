@@ -47,6 +47,8 @@ $list = $result->fetch_all(MYSQLI_ASSOC);
             <td><?= format_periode($row["periode"]) ?></td> 
             <td align="center"><?= $row["jumlah_penjualan"] ?></td>
             <td align="center"><?= $index == 0 || $index == 1 ? '-' : $wma ?></td>
+</td>
+
         </tr>
     <?php endforeach; ?>
     </table>
@@ -56,7 +58,16 @@ $list = $result->fetch_all(MYSQLI_ASSOC);
         $last_index = count($list) - 1;
         $wma_bulan_selanjutnya = (($list[$last_index]['jumlah_penjualan'] * 3) + ($list[$last_index-1]['jumlah_penjualan'] * 2) + ($list[$last_index-2]['jumlah_penjualan'] * 1)) / 6;
         ?>
-        Peramalan untuk periode selanjutnya adalah <?= $wma_bulan_selanjutnya ?>
+        Peramalan untuk periode selanjutnya adalah <td align="center">
+    <?php
+    if ($index == 0 || $index == 1) {
+        echo '-';
+    } else {
+        echo round($wma, 2);
+    }
+    ?>
+</td>
+
     </div>
 
     <div style="text-align: right">
