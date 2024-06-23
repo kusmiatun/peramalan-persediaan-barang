@@ -63,7 +63,7 @@ $list = $result->fetch_all(MYSQLI_ASSOC);
     if ($index == 0 || $index == 1) {
         echo '-';
     } else {
-        echo round($wma, 2);
+        echo round($wma_bulan_selanjutnya, 2);
     }
     ?>
 </td>
