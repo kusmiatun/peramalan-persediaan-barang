@@ -17,7 +17,7 @@ $mape_bulan_selanjutnya = null;
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Penjualan <?= $nama_obat ?></title>
+    <title>Data Penjualan <?= htmlspecialchars($nama_obat) ?></title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
@@ -66,9 +66,9 @@ $mape_bulan_selanjutnya = null;
                                 $list[$index]['wma'] = $wma;
                             ?>
                             <tr>
-                                <td><?= $row["nama_obat"] ?></td>  
+                                <td><?= htmlspecialchars($row["nama_obat"]) ?></td>  
                                 <td><?= format_periode($row["periode"]) ?></td> 
-                                <td align="center"><?= $row["jumlah_penjualan"] ?></td>
+                                <td align="center"><?= htmlspecialchars($row["jumlah_penjualan"]) ?></td>
                                 <td align="center"><?= $index < 3 ? '-' : round($wma, 2) ?></td>
                                 <td align="center"><?= $index < 3 ? '-' : round($selisih, 2) ?></td>
                                 <td align="center"><?= $index < 3 ? '-' : number_format($mape, 4) ?></td>
@@ -89,8 +89,21 @@ $mape_bulan_selanjutnya = null;
                     $last_index = count($list) - 1;
                     $wma_bulan_selanjutnya = (($list[$last_index]['jumlah_penjualan'] * 3) + ($list[$last_index-1]['jumlah_penjualan'] * 2) + ($list[$last_index-2]['jumlah_penjualan'] * 1)) / 6;
                     $mape_bulan_selanjutnya = (abs($list[$last_index]['jumlah_penjualan'] - $wma_bulan_selanjutnya) / $list[$last_index]['jumlah_penjualan']);
+
+                    $last_period = $list[$last_index]['periode'];
+                    echo "<!-- Debugging: last_period is '$last_period' -->"; // Tambahkan debugging
+                    $last_period_date = DateTime::createFromFormat('Y-m', $last_period);
+
+                    if ($last_period_date) {
+                        $next_period_date = $last_period_date->modify('+1 month');
+                        $next_period = $next_period_date->format('F Y');
+                    } else {
+                        $date = new DateTime($row["periode"]);
+                        $date->modify('+28 day');
+                        $next_period =format_periode($date->format('Y-m-d'));
+                    }
                     ?>
-                    <p class="mb-0">Peramalan untuk periode selanjutnya adalah <?= round($wma_bulan_selanjutnya, 2) ?></p>
+                    <p class="mb-0">Peramalan untuk <?= htmlspecialchars($next_period) ?> adalah <?= round($wma_bulan_selanjutnya, 2) ?></p>
                 </div>
             
             <?php else: ?>
