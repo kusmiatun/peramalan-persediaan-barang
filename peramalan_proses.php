@@ -43,6 +43,17 @@ $list = $result->fetch_all(MYSQLI_ASSOC);
         $last_index = count($list) - 1;
         $wma_bulan_selanjutnya = (($list[$last_index]['jumlah_penjualan'] * 3) + ($list[$last_index-1]['jumlah_penjualan'] * 2) + ($list[$last_index-2]['jumlah_penjualan'] * 1)) / 6;
         ?>
+        Peramalan untuk periode selanjutnya adalah <td align="center">
+    <?php
+    if ($index == 0 || $index == 1) {
+        echo '-';
+    } else {
+        echo round($wma_bulan_selanjutnya, 2);
+    }
+    ?>
+</td>
+
+    </div>
 
     </div>
 <?php else: ?>
