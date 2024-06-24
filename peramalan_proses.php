@@ -11,14 +11,7 @@ $list = $result->fetch_all(MYSQLI_ASSOC);
 ?>
 
 <?php if (count($list) > 0): ?>
-    <table border='1' style='width: 100%'>
-        <tr>
-            <th>Nama Obat</th>
-            <th>Periode</th>
-            <th>Jumlah Penjualan</th>
-            <th>WMA</th>
-        </tr>
-
+      
     <?php
         $total_mape = 0;
         $total_data = count($list);
@@ -42,36 +35,15 @@ $list = $result->fetch_all(MYSQLI_ASSOC);
             $total_selisih += $selisih;
             $list[$index]['wma'] = $wma;
         ?>
-        <tr>
-            <td><?= $row["nama_obat"] ?></td>  
-            <td><?= format_periode($row["periode"]) ?></td> 
-            <td align="center"><?= $row["jumlah_penjualan"] ?></td>
-            <td align="center"><?= $index == 0 || $index == 1 ? '-' : $wma ?></td>
-</td>
-
-        </tr>
-    <?php endforeach; ?>
-    </table>
+          <?php endforeach; ?>
+    
 
     <div style="margin-top: 24px; margin-bottom: 24px">
         <?php
         $last_index = count($list) - 1;
         $wma_bulan_selanjutnya = (($list[$last_index]['jumlah_penjualan'] * 3) + ($list[$last_index-1]['jumlah_penjualan'] * 2) + ($list[$last_index-2]['jumlah_penjualan'] * 1)) / 6;
         ?>
-        Peramalan untuk periode selanjutnya adalah <td align="center">
-    <?php
-    if ($index == 0 || $index == 1) {
-        echo '-';
-    } else {
-        echo round($wma, 2);
-    }
-    ?>
-</td>
 
-    </div>
-
-    <div style="text-align: right">
-        <a href="mape.php?nama_obat=<?= $nama_obat ?>">Klik akurasi error</a>
     </div>
 <?php else: ?>
     0 results
