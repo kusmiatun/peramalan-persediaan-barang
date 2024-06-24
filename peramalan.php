@@ -113,7 +113,6 @@ function printTabel() {
 }
 </script>
 
-
             <?php 
             if(isset($_GET['nama_obat']) && !empty($_GET['nama_obat'])){
                 include "peramalan_proses.php"; 
